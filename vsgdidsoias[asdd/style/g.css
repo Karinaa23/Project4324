@@ -1,0 +1,61 @@
+.slider-section {
+    margin: 50px 0;
+   }
+   .slider-container {
+    max-width: 1200px;
+    height: 350px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+   }
+   .slider-image {
+    height: 100%;
+    width: 100%;
+    background-image: url('e:/2 курс/KF,GHFRNRKS/img/cafe/CAFE.jpg');
+    background-position: center center;
+    background-size: cover;
+    transition: transform 0.5s ease-in-out;
+   }
+   .slider-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+    z-index: 10;
+   }
+   .slider-arrow.left {
+    left: 0;
+    background: linear-gradient(90deg, #dfccb5 0%, rgba(0,212,255,0) 100%);
+   }
+   .slider-arrow.right {
+    right: 0;
+    background: linear-gradient(-90deg, #dfccb5 0%, rgba(0,212,255,0)100%);
+   }
+   .slider-container:hover .slider-arrow {
+    opacity: 1;
+   }
+
+.slider-container:hover .slider-image {
+    transform: scale(1.05); 
+}
+.carousel {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+.carousel-indicators button {
+    width: 15px; 
+    height: 15px;
+    border-radius: 50%; 
+    background-color: rgb(255, 255, 255); 
+    border: none;
+    opacity: 0.5; 
+    transition: opacity 0.3s ease-in-out;
+}
+.carousel-indicators .active {
+    opacity: 1; 
+    background-color: #A79277; 
+}

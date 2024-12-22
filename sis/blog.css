@@ -1,0 +1,236 @@
+body {
+    color: #EDE1D4;
+    margin: 0;
+    padding: 0;
+    background: #ead3fd;
+}
+header {
+    background: #8d59ac;
+    padding: 0;
+}
+/* Основная структура */
+.blog-article {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    max-width: 960px;
+    margin: 40px auto;
+}
+
+/* Карточки блога с эффектом Masonry */
+.blog-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: auto; /* Убедитесь, что строки автоматически подстраиваются */
+    gap: 20px;
+}
+
+.blog-card {
+    background: linear-gradient(135deg, #8343ad, #a34beb); /* Градиент */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px 5px 20px 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    border: 2px solid rgba(76, 27, 109, 0.3);
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;  /* Анимация карточек при загрузке */
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: #7435af;
+}
+.blog-cover{
+    background: url('./images'); /* Относительный путь */
+    background-size: cover;
+    height: 200px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    background-position: center center;
+    border: 5px solid #f2eef5; /* Добавляем рамку */
+    border-radius: 10px; /* Скругляем углы */
+}
+.blog-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.blog-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 5px solid #f2eef5; /* Рамка */
+    border-radius: 10px; /* Скругленные углы */
+    overflow: hidden; /* Обрезаем изображение */
+    background-color: #f4eaf7; /* Фон на случай, если изображение не загрузится */
+}
+
+.blog-cover img:hover {
+    transform: scale(1.05); /* Эффект увеличения */
+}
+.blog-title h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #e7b9f5;
+}
+
+.blog-text p {
+    font-size: 16px;
+    color: #dfb1f1;
+    line-height: 1.6;
+}
+
+/* Теги */
+.blog-tags ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.blog-tags a {
+    text-decoration: none;
+    color: #863eb6;
+    background: #e7c2fc;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.blog-tags a:hover {
+    background: #713396;
+    color: #e5d4f5;
+    transform: scale(1.1);
+}
+
+/* Подвал карточки */
+.blog-footer {
+    font-size: 14px;
+    color: #653481;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+/* Боковая панель */
+.blog-aside {
+    position: sticky;
+    top: 20px;
+    
+    border-radius: 20px;
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Внутри боковой панели */
+.aside-search,
+.aside-recent {
+    width: 100%;
+    margin-bottom: 20px;
+    background: #5e11a7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Заголовки в боковой панели */
+.search-title {
+    font-size: 18px;
+    color: #f2defc;
+}
+
+/* Поля ввода в боковой панели */
+.search-text,
+.search-do {
+    width: 100%; /* Растягиваем поля на всю ширину */
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.search-do {
+    background: #a44ed6;
+    color: #d6a8f1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-do:hover {
+    background: #9539d3;
+}
+
+/* Разделители */
+.search-delimiter {
+    width: 100%; /* Разделители растягиваются на всю ширину */
+    height: 2px;
+    background: #7f21b6;
+    margin: 20px 0;
+}
+
+/* Недавние статьи */
+.recent-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cca8fc;
+}
+
+.recent-item p {
+    color: #e6bdf7;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.recent-item p:hover {
+    color: #ca75f1;
+}
+
+.recent-item span {
+    color: #af62d3;
+    font-size: 12px;
+}
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+/* Для всех изображений (если требуется) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog-article {
+        grid-template-columns: 1fr;
+    }
+    .blog-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+        @media screen and (max-width: 992px) {
+            
+            .blog-container {
+                max-width: 600px;
+                flex-direction: column;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .blog-container {
+                grid-template-columns: 1fr; /* Все карточки в одну колонку */
+            }
+        }
